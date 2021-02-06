@@ -1,6 +1,3 @@
-import sys
-print(sys.path)
-
 import RPi.GPIO as GPIO
 from time import sleep
 pin =4

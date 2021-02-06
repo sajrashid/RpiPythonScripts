@@ -1,5 +1,3 @@
-import sys
-print(sys.path)
 from gpiozero import CPUTemperature
 import RPi.GPIO as GPIO
 from time import sleep, strftime, time
