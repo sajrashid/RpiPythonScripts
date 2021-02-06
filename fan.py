@@ -1,3 +1,5 @@
+import sys
+print(sys.path)
 from gpiozero import CPUTemperature
 import RPi.GPIO as GPIO
 from time import sleep, strftime, time
@@ -15,9 +17,13 @@ while True:
             print(cpu.temperature)
             # set pin to off initial
             GPIO.output(pin, GPIO.LOW)
-            if cpu.temperature > 40:
-                GPIO.output(pin, GPIO.HIGH)
-                (sleep(5))
-            else:
-                GPIO.output(pin, GPIO.LOW)
-                (sleep(10))
+            while cpu.temperature > 40:
+                (sleep(1))
+                print(cpu.temperature)
+                 # To test the value of a pin use the .input method
+                pin_is_off = GPIO.input(pin)  # Returns 0 if OFF or 1 if ON
+                if pin_is_off == 0: # true if 1 (ON)
+                   print(cpu.temperature)
+                   GPIO.output(pin, GPIO.HIGH)
+            GPIO.output(pin, GPIO.LOW)
+            (sleep(10))
