@@ -15,3 +15,5 @@ GPIO.output(pin, GPIO.LOW)
 (sleep(5))
   #  turn off relay in revese mode so sety pin to low
 GPIO.output(pin, GPIO.HIGH)         
+
+GPIO.cleanup()  
