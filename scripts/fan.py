@@ -1,6 +1,16 @@
 from gpiozero import CPUTemperature
 import RPi.GPIO as GPIO
 from time import sleep, strftime, time
+import signal
+import sys
+
+def signal_handler(sig, frame):
+    # print('You pressed Ctrl+C!')
+    GPIO.cleanup()  
+    
+    sys.exit(0)
+signal.signal(signal.SIGINT, signal_handler)
+# print('Press Ctrl+C')
 
 cpu = CPUTemperature()
     # Set up input pin
@@ -9,6 +19,9 @@ pin =2
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.OUT)
+
+
+    
         # Create an Infinite Loops
 while True: # Get Initial PIN State
             # To test the value of a PIN use the .input method
@@ -32,7 +45,11 @@ while True: # Get Initial PIN State
                         # Set the PIN state to ON 
                         GPIO.output(pin, GPIO.HIGH)
                     (sleep(1))
-                    
+
             else:
                  (sleep(1))
+
+signal.pause()
+
+
 
