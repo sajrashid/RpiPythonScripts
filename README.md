@@ -46,11 +46,11 @@ Connect Load to to NO or NC & Common
 
 ## SKR to PI serial UART connection using GPIO
 
-![See vid here for wiring](https://www.youtube.com/watch?v=AtW3GqkKUz8-Q&t=14m39s)
+[See vid here for wiring](https://www.youtube.com/watch?v=AtW3GqkKUz8-Q&t=14m39s)
 
 Connect RX , TX GND pins from TFT header to PI UART GPIO pins 14 & 15 ensure RX & TX are crossed!!!
 
-![alt text](https://pinout.xyz/pinout/pin8_gpio14 "PI UART PINOUT")
+[PI UART PINOUT](https://pinout.xyz/pinout/pin8_gpio14)
 
 To power the PI from the printers connect 5v to the Pin 2 on the PI
 
